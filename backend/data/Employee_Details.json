@@ -1,0 +1,556 @@
+{
+  "employees": {
+    "John Smith": {
+      "name": "John Smith",
+      "availability": [
+        {
+          "day": "Monday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Tuesday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Thursday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Emma Johnson": {
+      "name": "Emma Johnson",
+      "availability": [
+        {
+          "day": "Wednesday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        },
+        {
+          "day": "Friday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        },
+        {
+          "day": "Saturday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Liam Brown": {
+      "name": "Liam Brown",
+      "availability": [
+        {
+          "day": "Monday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        },
+        {
+          "day": "Wednesday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        },
+        {
+          "day": "Friday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        },
+        {
+          "day": "Sunday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        }
+      ],
+      "shifts": 4
+    },
+    "Olivia Taylor": {
+      "name": "Olivia Taylor",
+      "availability": [
+        {
+          "day": "Tuesday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        },
+        {
+          "day": "Thursday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        },
+        {
+          "day": "Saturday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Noah Anderson": {
+      "name": "Noah Anderson",
+      "availability": [
+        {
+          "day": "Monday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Tuesday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Friday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Ava Thomas": {
+      "name": "Ava Thomas",
+      "availability": [
+        {
+          "day": "Wednesday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        },
+        {
+          "day": "Thursday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        },
+        {
+          "day": "Saturday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        },
+        {
+          "day": "Sunday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        }
+      ],
+      "shifts": 4
+    },
+    "Sophia Jackson": {
+      "name": "Sophia Jackson",
+      "availability": [
+        {
+          "day": "Monday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        },
+        {
+          "day": "Friday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        },
+        {
+          "day": "Sunday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "James White": {
+      "name": "James White",
+      "availability": [
+        {
+          "day": "Tuesday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        },
+        {
+          "day": "Wednesday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        },
+        {
+          "day": "Thursday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Lucas Martin": {
+      "name": "Lucas Martin",
+      "availability": [
+        {
+          "day": "Monday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Thursday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Saturday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Mia Lee": {
+      "name": "Mia Lee",
+      "availability": [
+        {
+          "day": "Tuesday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        },
+        {
+          "day": "Friday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        },
+        {
+          "day": "Sunday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Ethan Harris": {
+      "name": "Ethan Harris",
+      "availability": [
+        {
+          "day": "Monday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        },
+        {
+          "day": "Wednesday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        },
+        {
+          "day": "Saturday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Charlotte Clark": {
+      "name": "Charlotte Clark",
+      "availability": [
+        {
+          "day": "Thursday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        },
+        {
+          "day": "Friday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        },
+        {
+          "day": "Sunday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Benjamin Lewis": {
+      "name": "Benjamin Lewis",
+      "availability": [
+        {
+          "day": "Monday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Tuesday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Wednesday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Friday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        }
+      ],
+      "shifts": 4
+    },
+    "Amelia Walker": {
+      "name": "Amelia Walker",
+      "availability": [
+        {
+          "day": "Thursday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        },
+        {
+          "day": "Saturday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        },
+        {
+          "day": "Sunday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Daniel Hall": {
+      "name": "Daniel Hall",
+      "availability": [
+        {
+          "day": "Monday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        },
+        {
+          "day": "Wednesday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        },
+        {
+          "day": "Thursday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Harper Allen": {
+      "name": "Harper Allen",
+      "availability": [
+        {
+          "day": "Tuesday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        },
+        {
+          "day": "Friday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        },
+        {
+          "day": "Saturday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Michael Young": {
+      "name": "Michael Young",
+      "availability": [
+        {
+          "day": "Monday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Tuesday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Sunday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Ella Hernandez": {
+      "name": "Ella Hernandez",
+      "availability": [
+        {
+          "day": "Wednesday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        },
+        {
+          "day": "Thursday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        },
+        {
+          "day": "Friday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Alexander King": {
+      "name": "Alexander King",
+      "availability": [
+        {
+          "day": "Monday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        },
+        {
+          "day": "Saturday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        },
+        {
+          "day": "Sunday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Grace Wright": {
+      "name": "Grace Wright",
+      "availability": [
+        {
+          "day": "Tuesday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        },
+        {
+          "day": "Thursday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        },
+        {
+          "day": "Friday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        },
+        {
+          "day": "Saturday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        }
+      ],
+      "shifts": 4
+    },
+    "Henry Lopez": {
+      "name": "Henry Lopez",
+      "availability": [
+        {
+          "day": "Monday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Wednesday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Friday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Scarlett Hill": {
+      "name": "Scarlett Hill",
+      "availability": [
+        {
+          "day": "Tuesday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        },
+        {
+          "day": "Thursday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        },
+        {
+          "day": "Sunday",
+          "date": "",
+          "time": "10 AM-6 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Sebastian Scott": {
+      "name": "Sebastian Scott",
+      "availability": [
+        {
+          "day": "Monday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        },
+        {
+          "day": "Wednesday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        },
+        {
+          "day": "Saturday",
+          "date": "",
+          "time": "8 AM-4 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Chloe Green": {
+      "name": "Chloe Green",
+      "availability": [
+        {
+          "day": "Tuesday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        },
+        {
+          "day": "Friday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        },
+        {
+          "day": "Sunday",
+          "date": "",
+          "time": "12 PM-8 PM"
+        }
+      ],
+      "shifts": 3
+    },
+    "Jack Adams": {
+      "name": "Jack Adams",
+      "availability": [
+        {
+          "day": "Monday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Thursday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Friday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        },
+        {
+          "day": "Saturday",
+          "date": "",
+          "time": "9 AM-5 PM"
+        }
+      ],
+      "shifts": 4
+    }
+  },
+  "total_employees": 25,
+  "extracted_at": "2026-05-27T21:32:14.171204"
+}

@@ -1,0 +1,226 @@
+.roster-page {
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.roster-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.roster-topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.roster-back {
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  background: rgba(255, 255, 255, 0.8);
+  color: #5b21b6;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.roster-heading {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(168, 85, 247, 0.12);
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.roster-kicker {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7c3aed;
+}
+
+.roster-heading h1 {
+  font-size: 34px;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.roster-heading p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.roster-filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr 180px;
+  gap: 16px;
+}
+
+.roster-filters label,
+.roster-stat {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(168, 85, 247, 0.12);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.roster-filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.roster-filters select {
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: #fff;
+  color: #111827;
+}
+
+.roster-stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.roster-stat span {
+  font-size: 34px;
+  font-weight: 900;
+  color: #6d28d9;
+}
+
+.roster-stat small {
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.roster-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 20px;
+}
+
+.roster-panel {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(168, 85, 247, 0.12);
+  border-radius: 24px;
+  padding: 20px;
+}
+
+.panel-head {
+  margin-bottom: 16px;
+}
+
+.panel-head h2 {
+  font-size: 18px;
+  color: #111827;
+}
+
+.schedule-list,
+.employee-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.schedule-card,
+.employee-card {
+  background: linear-gradient(180deg, #ffffff, #faf5ff);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.schedule-title,
+.employee-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.schedule-title h3,
+.employee-card-head h3 {
+  font-size: 16px;
+  color: #111827;
+}
+
+.schedule-title span,
+.employee-card-head span {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.schedule-shifts,
+.employee-card-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.shift-pill,
+.employee-shift {
+  min-width: 140px;
+  padding: 12px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shift-pill strong,
+.employee-shift strong {
+  color: #111827;
+}
+
+.shift-pill span,
+.employee-shift span {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.processed-panel pre {
+  margin: 0;
+  max-height: 360px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #374151;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.empty-state {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .roster-page {
+    padding: 20px;
+  }
+
+  .roster-topbar {
+    flex-direction: column;
+  }
+
+  .roster-grid,
+  .roster-filters {
+    grid-template-columns: 1fr;
+  }
+}

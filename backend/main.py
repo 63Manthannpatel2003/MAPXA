@@ -1,40 +1,121 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+import json
 import os
 
+from flask import Flask, jsonify, request
+from flask_cors import CORS
+from werkzeug.utils import secure_filename
+
+from config import Config, validate_config
+from pdf_processor import extract_availability_from_file
+from roster_generator import generate_roster
+
 app = Flask(__name__)
+CORS(app)
 
-# Allows React (port 3000) to talk to Flask (port 5001)
-CORS(app, resources={r"/*": {"origins": "*"}})
+for folder in (Config.UPLOAD_FOLDER, Config.DATA_FOLDER):
+    os.makedirs(folder, exist_ok=True)
 
-UPLOAD_FOLDER = 'uploads'
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
+app.config['UPLOAD_FOLDER'] = Config.UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = Config.MAX_CONTENT_LENGTH
 
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+ALLOWED_EXTENSIONS = {'pdf', 'csv', 'json', 'txt', 'xls', 'xlsx', 'xlsm', 'xltx', 'xltm'}
 
-@app.route('/upload', methods=['POST', 'OPTIONS'])
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+def save_processed_data(filename, data):
+    json_filename = f"{os.path.splitext(filename)[0]}.json"
+    json_path = os.path.join(Config.DATA_FOLDER, json_filename)
+    with open(json_path, 'w', encoding='utf-8') as json_file:
+        json.dump(data, json_file, ensure_ascii=False, indent=2)
+    return json_filename
+
+
+def load_processed_data(filename):
+    json_path = os.path.join(Config.DATA_FOLDER, secure_filename(filename))
+    if not os.path.exists(json_path):
+        return None
+    with open(json_path, 'r', encoding='utf-8') as json_file:
+        return json.load(json_file)
+
+
+@app.route('/api/health', methods=['GET'])
+def health():
+    return jsonify({'status': 'ok'}), 200
+
+
+@app.route('/api/upload', methods=['POST'])
 def upload_file():
-    # Handle the browser's pre-flight check
-    if request.method == 'OPTIONS':
-        return jsonify({"status": "ok"}), 200
-
     if 'file' not in request.files:
-        return jsonify({"error": "No file part in the request"}), 400
-    
-    file = request.files['file']
-    
-    if file.filename == '':
-        return jsonify({"error": "No file selected"}), 400
+        return jsonify({'error': 'No file provided'}), 400
 
-    if file and file.filename.endswith('.pdf'):
-        # In a real app, use werkzeug.utils.secure_filename
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-        file.save(file_path)
-        return jsonify({"message": f"Successfully uploaded {file.filename}!"}), 200
-    else:
-        return jsonify({"error": "Only PDF files are allowed"}), 400
+    file = request.files['file']
+
+    if file.filename == '':
+        return jsonify({'error': 'No file selected'}), 400
+
+    if not allowed_file(file.filename):
+        return jsonify({'error': 'Supported files: CSV, Excel, JSON, TXT, PDF'}), 400
+
+    try:
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(filepath)
+
+        availability_data = extract_availability_from_file(filepath)
+        if not availability_data:
+            return jsonify({'error': 'No employee availability data found in this file'}), 400
+
+        stored_file = save_processed_data(filename, availability_data)
+        roster = generate_roster(availability_data)
+
+        return jsonify({
+            'status': 'success',
+            'filename': filename,
+            'stored_file': stored_file,
+            'data': availability_data,
+            'roster': roster
+        }), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/generate-roster', methods=['POST'])
+def generate():
+    try:
+        body = request.get_json() or {}
+        availability = body.get('availability') or body.get('data')
+
+        if not availability and body.get('stored_file'):
+            availability = load_processed_data(body['stored_file'])
+
+        if not availability:
+            return jsonify({'error': 'No availability data provided'}), 400
+
+        roster = generate_roster(availability)
+        if not roster:
+            return jsonify({'error': 'Could not generate roster'}), 400
+
+        return jsonify({
+            'status': 'success',
+            'roster': roster
+        }), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.errorhandler(404)
+def not_found(error):
+    return jsonify({'error': 'Endpoint not found'}), 404
+
+
+@app.errorhandler(500)
+def internal_error(error):
+    return jsonify({'error': 'Internal server error'}), 500
+
 
 if __name__ == '__main__':
-    # Using Port 5001 to avoid Mac AirPlay conflict on Port 5000
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    validate_config()
+    app.run(debug=Config.DEBUG, host='0.0.0.0', port=Config.API_PORT)
