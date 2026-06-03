@@ -15,7 +15,7 @@ class Config:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     FLASK_ENV = os.getenv('FLASK_ENV', 'development')
     DEBUG = get_bool('FLASK_DEBUG', True)
-    API_PORT = int(os.getenv('API_PORT', 5000))
+    API_PORT = int(os.getenv('API_PORT', 5007))
     GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY') or os.getenv('GEMINI_API_KEY')
     GEMINI_MODEL = os.getenv('GEMINI_MODEL', 'gemini-1.5-flash')
     UPLOAD_FOLDER = os.path.join(BASE_DIR, 'uploads')

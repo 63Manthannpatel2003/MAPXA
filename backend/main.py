@@ -1,5 +1,6 @@
 import json
 import os
+import bcrypt
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -20,6 +21,30 @@ app.config['MAX_CONTENT_LENGTH'] = Config.MAX_CONTENT_LENGTH
 
 ALLOWED_EXTENSIONS = {'pdf', 'csv', 'json', 'txt', 'xls', 'xlsx', 'xlsm', 'xltx', 'xltm'}
 
+users_db = {}
+
+@app.route('/api/register', methods=['POST'])
+def register():
+    data = request.get_json()
+    email = data.get('email')
+    if email in users_db:
+        return jsonify({'error': 'User already exists'}), 400
+    hashed = bcrypt.hashpw(data['password'].encode(), bcrypt.gensalt())
+    users_db[email] = {
+        'email': email,
+        'password': hashed,
+        'first_name': data.get('firstName'),
+        'last_name': data.get('lastName')
+    }
+    return jsonify({'email': email}), 201
+
+@app.route('/api/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    user = users_db.get(data.get('email'))
+    if not user or not bcrypt.checkpw(data['password'].encode(), user['password']):
+        return jsonify({'error': 'Invalid email or password'}), 401
+    return jsonify({'email': user['email'], 'first_name': user['first_name']}), 200
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -44,7 +69,6 @@ def load_processed_data(filename):
 @app.route('/api/health', methods=['GET'])
 def health():
     return jsonify({'status': 'ok'}), 200
-
 
 @app.route('/api/upload', methods=['POST'])
 def upload_file():

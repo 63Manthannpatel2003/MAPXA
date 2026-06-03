@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import "./FileUpload.css";
 import { FiCheckCircle, FiFileText, FiUploadCloud } from "react-icons/fi";
 
+
 const FileUpload = ({ onSuccess }) => {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
   const [isUploading, setIsUploading] = useState(false);
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    window.location.reload();
+  };
 
   const onFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -71,6 +76,10 @@ const FileUpload = ({ onSuccess }) => {
           <br />
           Works for every team member.
         </p>
+
+        <button className="logout-btn" onClick={handleLogout}>
+          Sign out
+        </button>
       </div>
 
       <div className="upload-wrapper">

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import FileUpload from "./views/FileUpload";
 import RosterPage from "./views/RosterPage";
-
+import AuthPages from "./views/AuthPages";
 const STORAGE_KEY = "smart-roster-result";
 
 const App = () => {
@@ -33,15 +33,18 @@ const App = () => {
     window.location.hash = "#/upload";
   };
 
+  const isLoggedIn = !!localStorage.getItem('user');
+
   return (
     <div className="App">
-      {route === "#/roster" && result ? (
+      {!isLoggedIn ? (
+        <AuthPages />
+      ) : route === "#/roster" && result ? (
         <RosterPage result={result} onBack={handleBack} />
       ) : (
         <FileUpload onSuccess={handleSuccess} />
       )}
-    </div>
-  );
+    </div>)
 };
 
 export default App;

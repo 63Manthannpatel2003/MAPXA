@@ -5,7 +5,34 @@
   flex-direction: column;
   padding: 40px;
 }
+.logout-btn {
+  margin-top: 1rem;
+  padding: 8px 20px;
+  background: rgba(148, 79, 79, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  /* color: rgba(255, 255, 255, 0.6); */
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+    position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+.logout-btn:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
+.background-decoration {
+  z-index: 0;
+  pointer-events: none;
+}
 
+.upload-header {
+  position: relative;
+  z-index: 2;
+}
 .upload-wrapper {
   display: flex;
   align-items: center;
